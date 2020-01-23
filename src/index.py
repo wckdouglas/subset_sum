@@ -20,8 +20,7 @@ def cal_sum():
     else:
         list_of_nums = list_of_nums.split('\n')
     msg = subset_sum(list_of_nums, sum_num)
-    print(msg, list_of_nums, sum_num)
-    if msg != 0:
+    if msg:
         flash(msg)
 
     return render_template('/index.html')
