@@ -12,7 +12,7 @@ def subset_sum(numbers, target, partial_list=[], local=False):
         double s
 
     s = sum(partial_list)
-    #print(partial_list, s)
+    print(partial_list, s)
 
     # check if the partial_list sum is equals to target
     if s == target: 
@@ -44,7 +44,7 @@ def wrapper(numbers, target, partial_list=[], local=False):
     except ValueError:
         return 'Target sum number is not a valid number'
 
-    res = subset_sum(numbers, target, partial_list = partial_list, local=False)
+    res = subset_sum(numbers, target, partial_list = partial_list, local=local)
     return res
 
 
