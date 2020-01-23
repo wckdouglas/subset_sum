@@ -1,0 +1,49 @@
+<!doctype html>
+
+<title> Solving subset sum problem </title>
+
+<link rel="stylesheet" media="screen" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap-theme.min.css') }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="container">
+
+<h1> Solving subset sum problem </h1>
+
+This is an app to solve subset sub problem. Briefly, the problem is define by:
+<ul class="list-group">
+  <li class="list-group-item">1. Given a list of numbers and a sum </li>
+  <li class="list-group-item">2. Find all possible combinations that give the sum </li>
+</ul>
+
+
+
+<h2>Please set up your problem</h2>
+
+<form method="post" action=" {{ url_for('index') }} " enctype="multipart/form-data">
+    <dl>
+        <div class="form-group">
+            <label for="file-upload">Your list of numbers</label>
+            <input type="name" class="form-control" name="list_of_numbers" id="list_of_numbers" autocomplete="off" required placeholder = 'Your list of numbers, e.g. 10.0,-1.2,0.3 or one number each line'>
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="name" class="form-control" id="sum_num" name='sum_num' required placeholder="The desired sum, e.g. 20.0">
+        </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+<!--
+	Show error or messages
+-->
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
