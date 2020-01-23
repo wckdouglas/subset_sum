@@ -1,6 +1,7 @@
 from flask import flash
+from functools import partial
 
-def subset_sum(numbers, target, partial=[]):
+def subset_sum(numbers, target, partial_list=[], local=False):
     '''
     https://stackoverflow.com/questions/4632322/finding-all-possible-combinations-of-numbers-to-reach-a-given-sum
     '''
@@ -10,9 +11,9 @@ def subset_sum(numbers, target, partial=[]):
         double n
         double s
 
-
     try:
         numbers = list(map(float, numbers))
+        numbers.sort()
     except ValueError:
         return 'Some of the input numbers are not valid numbers'
 
@@ -21,14 +22,22 @@ def subset_sum(numbers, target, partial=[]):
     except ValueError:
         return 'Target sum number is not a valid number'
 
-    s = sum(partial)
+    s = sum(partial_list)
+    #print(partial_list, s)
 
-    # check if the partial sum is equals to target
+    # check if the partial_list sum is equals to target
     if s == target: 
-        flash("sum(%s)=%s" % (partial, target))
+        msg = "sum(%s)=%s" % (partial_list, target)
+        if local:
+            print(msg)
+        else:
+            flash(msg)
+        return 0
+
+    if s > target:
         return 0
 
     for i in range(len(numbers)):
         n = numbers[i]
         remaining = numbers[i+1:]
-        subset_sum(remaining, target, partial + [n]) 
+        subset_sum(remaining, target, partial_list + [n]) 
