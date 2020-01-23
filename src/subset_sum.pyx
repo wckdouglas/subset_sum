@@ -1,6 +1,6 @@
 from flask import flash
 
-cdef subset_sum(numbers, target, partial=[]):
+def subset_sum(numbers, target, partial=[]):
     '''
     https://stackoverflow.com/questions/4632322/finding-all-possible-combinations-of-numbers-to-reach-a-given-sum
     '''
