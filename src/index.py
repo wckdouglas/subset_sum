@@ -15,6 +15,8 @@ def cal_sum():
     sum_num = float(data['sum_num'])
     if ',' in list_of_nums:
         list_of_nums = list_of_nums.split(',')
+    elif ' ' in list_of_nums:
+        list_of_nums = list_of_nums.split(' ')
     else:
         list_of_nums = list_of_nums.split('\n')
     msg = subset_sum(list_of_nums, sum_num)
