@@ -11,17 +11,6 @@ def subset_sum(numbers, target, partial_list=[], local=False):
         double n
         double s
 
-    try:
-        numbers = list(map(float, numbers))
-        numbers.sort()
-    except ValueError:
-        return 'Some of the input numbers are not valid numbers'
-
-    try:
-        target = float(target)
-    except ValueError:
-        return 'Target sum number is not a valid number'
-
     s = sum(partial_list)
     #print(partial_list, s)
 
@@ -41,3 +30,21 @@ def subset_sum(numbers, target, partial_list=[], local=False):
         n = numbers[i]
         remaining = numbers[i+1:]
         subset_sum(remaining, target, partial_list + [n]) 
+
+
+def wrapper(numbers, target, partial_list=[], local=False):
+    try:
+        numbers = list(map(float, numbers))
+        numbers.sort()
+    except ValueError:
+        return 'Some of the input numbers are not valid numbers'
+
+    try:
+        target = float(target)
+    except ValueError:
+        return 'Target sum number is not a valid number'
+
+    res = subset_sum(numbers, target, partial_list = partial_list, local=False)
+    return res
+
+

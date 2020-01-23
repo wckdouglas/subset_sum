@@ -2,7 +2,7 @@ from .config import app
 from flask import Flask, flash, request, redirect, render_template, url_for
 import pyximport
 pyximport.install()
-from .subset_sum import subset_sum
+from .subset_sum import wrapper
 
 
 @app.route('/',methods=['GET'])
@@ -21,7 +21,7 @@ def cal_sum():
         list_of_nums = list_of_nums.split(' ')
     else:
         list_of_nums = list_of_nums.split('\n')
-    msg = subset_sum(list_of_nums, sum_num)
+    msg = wrapper(list_of_nums, sum_num)
     if msg:
         flash(msg)
 
