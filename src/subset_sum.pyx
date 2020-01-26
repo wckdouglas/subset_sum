@@ -12,7 +12,6 @@ def subset_sum(numbers, target, partial_list=[], local=False):
 
 
     s = sum(partial_list)
-    print(partial_list, s)
 
     # check if the partial_list sum is equals to target
     if s == target: 
