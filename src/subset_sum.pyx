@@ -6,10 +6,6 @@ def subset_sum(numbers, target, partial_list=[], local=False):
     https://stackoverflow.com/questions/4632322/finding-all-possible-combinations-of-numbers-to-reach-a-given-sum
     '''
 
-    cdef:
-        int i
-        double n
-        double s
 
     s = sum(partial_list)
     print(partial_list, s)

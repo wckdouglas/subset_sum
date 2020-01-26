@@ -1,7 +1,5 @@
 from .config import app
 from flask import Flask, flash, request, redirect, render_template, url_for
-import pyximport
-pyximport.install()
 from .subset_sum import wrapper
 
 
